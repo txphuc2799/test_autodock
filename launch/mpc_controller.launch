@@ -1,0 +1,15 @@
+<launch>
+    <!-- <include file="$(find test_autodock)/launch/tag_detection.launch"/> -->
+
+    <node pkg="test_autodock" name="path_tracker" type="bezier_path.py" output="screen"/>
+
+    <!-- MPC controller -->
+    <node pkg="test_autodock" name="mpc_controller" type="mpc_planner_node" respawn="false" output="screen">
+        <rosparam file="$(find test_autodock)/params/mpc_controller.yaml" command="load" />
+        <remap from="/plan" to="/compute_path"/>
+        <!-- <remap from="/cmd_vel" to="/pallet_truck/smoothed_vel"/> -->
+        <remap from="odom" to="/odometry/filtered"/>
+        <!-- <remap from="odom" to="/pallet_truck/odometry/filtered"/> -->
+    </node>
+    
+</launch>

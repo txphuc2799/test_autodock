@@ -1,0 +1,9 @@
+<launch>
+    <!-- <include file="$(find test_autodock)/launch/tag_detection.launch"/> -->
+
+    <!-- MTP controller -->
+    <node pkg="test_autodock" name="mtp_controller" type="move_to_pose.py" respawn="false" output="screen">
+        <rosparam file="$(find test_autodock)/params/move_to_pose.yaml" command="load" />
+    </node>
+    
+</launch>

@@ -1,0 +1,8 @@
+#goal         
+bool start_controller
+---
+#result
+bool is_success
+---
+#feedback
+float64 remaining_distance
